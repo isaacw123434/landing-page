@@ -26,6 +26,8 @@ import {
 } from 'lucide-react';
 
 import { saveEmail } from './firebase';
+import NeuralRoutingSection from './components/NeuralRoutingSection';
+
 const App = () => {
   const [startLocation, setStartLocation] = useState('');
   const [endLocation, setEndLocation] = useState('');
@@ -516,6 +518,8 @@ const handleSearch = (e) => {
           </div>
         </div>
       </section>
+
+      <NeuralRoutingSection />
 
       {/* Footer */}
       <footer className="py-16 bg-[#f5f8f6] border-t border-[#e7f4eb] font-display">

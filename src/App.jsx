@@ -23,18 +23,18 @@ import {
   ChevronUp,
   Bike
 } from 'lucide-react';
-import { saveEmail } from './firebase';
 
+import { saveEmail } from './firebase';
 const App = () => {
   const [startLocation, setStartLocation] = useState('');
   const [endLocation, setEndLocation] = useState('');
   const [isWorkMode, setIsWorkMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showAllRoutes, setShowAllRoutes] = useState(false);
-  const [email, setEmail] = useState('');
   const resultsRef = useRef(null);
+  const [email, setEmail] = useState('');
 
-  const handleSearch = (e) => {
+const handleSearch = (e) => {
     e.preventDefault();
     setShowModal(true);
   };
@@ -374,7 +374,7 @@ const App = () => {
                           <li className="flex justify-between"><span>• Cycle (3.2 mi)</span> <span>17 min | £0.00</span></li>
                           <li className="flex justify-between text-red-500"><span>• Drive to Station (4.2 mi)</span> <span>15 min | 45p/mi</span></li>
                           <li className="flex justify-between text-red-500 pl-4"><span>+ Parking (24h)</span> <span>£23.00</span></li>
-                          <li className="flex justify-between"><span>• Bus (Line 24)</span> <span>23 min | £2.00</span></li>
+                         <li className="flex justify-between"><span>• Bus (Line 24)</span> <span>23 min | £2.00</span></li>
                           <li className="flex justify-between font-bold bg-indigo-50 px-1"><span>• Uber Direct</span> <span>14 min | £8.97</span></li>
                           <li className="flex justify-between"><span>• Uber (5m) + Train (10m)</span> <span>15 min | £9.32</span></li>
                        </ul>

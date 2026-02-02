@@ -10,10 +10,20 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+let app;
+let db;
+
+try {
+  app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+} catch (error) {
+  console.warn("Firebase initialization failed. Secrets might be missing.", error);
+}
 
 export const saveEmail = async (email) => {
+  if (!db) {
+    throw new Error("Firebase is not initialized. Check your environment variables.");
+  }
   try {
     const docRef = await addDoc(collection(db, "emails"), {
       email: email,

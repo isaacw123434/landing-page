@@ -56,22 +56,35 @@ service cloud.firestore {
 3.  Register the app (e.g., `Commute Architect Web`).
 4.  You will see a configuration object (`firebaseConfig`). You need the values from this object.
 
-## 5. Configure GitHub Secrets
+## 5. Environment Configuration
 
-To deploy this site with GitHub Actions, you need to add the Firebase configuration keys as Repository Secrets.
+You need to provide the Firebase configuration keys to the application.
+
+### For Local Development
+
+1.  Create a file named `.env` in the root of the project.
+2.  Add the following variables using the values from your Firebase config:
+
+    ```env
+    VITE_FIREBASE_API_KEY=your_api_key
+    VITE_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
+    VITE_FIREBASE_PROJECT_ID=your_project_id
+    VITE_FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
+    VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+    VITE_FIREBASE_APP_ID=your_app_id
+    ```
+
+### For GitHub Actions (Build Verification)
+
+To ensure the project builds correctly in the repository (via the automated checks), you must add these keys as Repository Secrets.
 
 1.  Go to your GitHub repository.
 2.  Click **Settings** -> **Secrets and variables** -> **Actions**.
 3.  Click **New repository secret**.
-4.  Add the following secrets using the values from your Firebase config:
-
+4.  Add the same secrets listed above:
     *   `VITE_FIREBASE_API_KEY`
     *   `VITE_FIREBASE_AUTH_DOMAIN`
     *   `VITE_FIREBASE_PROJECT_ID`
     *   `VITE_FIREBASE_STORAGE_BUCKET`
     *   `VITE_FIREBASE_MESSAGING_SENDER_ID`
     *   `VITE_FIREBASE_APP_ID`
-
-## 6. Verify Deployment
-
-Once the secrets are added, push a new commit to the repository. The GitHub Action will run, build the project with the new environment variables, and deploy it to GitHub Pages.

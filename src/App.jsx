@@ -21,7 +21,8 @@ import {
   Map as MapIcon,
   ChevronDown,
   ChevronUp,
-  Bike
+  Bike,
+  Leaf
 } from 'lucide-react';
 
 import { saveEmail } from './firebase';
@@ -84,7 +85,7 @@ const handleSearch = (e) => {
               </div>
               <h3 className="text-xl font-bold">Private Beta Access</h3>
               <p className="text-[#0d1c12]/80 text-sm mt-1 font-medium">
-                We are currently limiting route calculations to prevent server overload.
+                We are in private beta. If you are interested in using the app when launched, please enter your email.
               </p>
             </div>
             <div className="p-6">
@@ -135,10 +136,10 @@ const handleSearch = (e) => {
         <div className="flex flex-col items-center max-w-[960px] w-full gap-8 z-10">
           <div className="text-center space-y-4 max-w-2xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-[#0d1c12]">
-              Stop guessing how to get to work.
+              Stop guessing how to travel the UK.
             </h1>
             <p className="text-lg md:text-xl text-[#0d1c12]/70 font-medium">
-              The first multi-modal router that values your time as much as your wallet.
+              One search. Three distinct options. Compare driving, public transport, and hybrid routes by cost, speed, and carbon.
             </p>
           </div>
           
@@ -168,24 +169,7 @@ const handleSearch = (e) => {
                 </div>
               </div>
 
-              <div className="flex flex-col md:flex-row gap-3 items-center justify-between pt-2">
-                <div className="flex items-center gap-1 bg-[#f5f8f6] rounded-lg p-1 border border-[#cee8d7] w-full md:w-auto">
-                  <button 
-                    type="button"
-                    onClick={() => setIsWorkMode(true)}
-                    className={`flex-1 md:flex-none px-4 py-1.5 rounded text-xs font-bold shadow-sm transition-all ${isWorkMode ? 'bg-white text-[#0d1c12]' : 'bg-transparent text-gray-500 hover:text-[#0d1c12]'}`}
-                  >
-                    Productivity
-                  </button>
-                  <button 
-                    type="button"
-                    onClick={() => setIsWorkMode(false)}
-                    className={`flex-1 md:flex-none px-4 py-1.5 rounded text-xs font-bold shadow-sm transition-all ${!isWorkMode ? 'bg-white text-[#0d1c12]' : 'bg-transparent text-gray-500 hover:text-[#0d1c12]'}`}
-                  >
-                    Lowest Cost
-                  </button>
-                </div>
-                
+              <div className="flex flex-col md:flex-row gap-3 items-center justify-end pt-2">
                 <button 
                   type="submit"
                   className="w-full md:w-auto flex items-center justify-center gap-2 bg-[#0df259] hover:bg-[#0be050] text-[#0d1c12] px-6 py-3 rounded-lg font-bold text-sm transition-all shadow-lg shadow-[#0df259]/20"
@@ -195,6 +179,57 @@ const handleSearch = (e) => {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Logic Features Section */}
+      <section className="py-20 bg-white font-display">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0d1c12]">We connect the dots Google Maps misses.</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10">
+            <div className="p-6 rounded-2xl bg-[#f5f8f6] border border-[#cee8d7] hover:shadow-lg transition-shadow group">
+              <div className="w-12 h-12 bg-[#cee8d7] rounded-xl flex items-center justify-center text-[#0d1c12] mb-6 group-hover:bg-[#0df259] transition-colors">
+                <Car size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-[#0d1c12] mb-3">The "Parking vs. Taxi" Calculation</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                We don't just show ticket prices. We check parking rates at your hub destination. Often, taking an Uber to the station is cheaper than parking your car.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#f5f8f6] border border-[#cee8d7] hover:shadow-lg transition-shadow group">
+              <div className="w-12 h-12 bg-[#cee8d7] rounded-xl flex items-center justify-center text-[#0d1c12] mb-6 group-hover:bg-[#0df259] transition-colors">
+                <TrendingUp size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-[#0d1c12] mb-3">Multi-Modal Stitching</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                Most routers are binary: "Drive" or " Take the train." We stitch them together. We analyse the different routes available to get the best options for each leg of the journey.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#f5f8f6] border border-[#cee8d7] hover:shadow-lg transition-shadow group">
+              <div className="w-12 h-12 bg-[#cee8d7] rounded-xl flex items-center justify-center text-[#0d1c12] mb-6 group-hover:bg-[#0df259] transition-colors">
+                <Briefcase size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-[#0d1c12] mb-3">Productivity Tracking</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                Time is money. We calculate Dead Time (stuck behind the wheel) versus Productivity Time (working on the train), so you can see the true value of your travel hours.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#f5f8f6] border border-[#cee8d7] hover:shadow-lg transition-shadow group">
+              <div className="w-12 h-12 bg-[#cee8d7] rounded-xl flex items-center justify-center text-[#0d1c12] mb-6 group-hover:bg-[#0df259] transition-colors">
+                <Leaf size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-[#0d1c12] mb-3">Carbon Transparency</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                Ready for reporting. We categorise your carbon footprint by distance for every single trip, helping you meet environmental standards without extra paperwork.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -259,10 +294,10 @@ const handleSearch = (e) => {
             <div className="space-y-4">
               <div className="flex flex-col md:flex-row justify-between md:items-end gap-2">
                 <div>
-                  <div className="text-xs font-bold text-green-600 uppercase tracking-wider mb-1">Option 2: Cheapest Route</div>
+                  <div className="text-xs font-bold text-green-600 uppercase tracking-wider mb-1">Option 2: Cheapest</div>
                   <h3 className="text-lg font-bold flex items-center gap-2 text-slate-700">
                     <Bus size={20} className="text-emerald-500"/> 
-                    Public Transport Only
+                    Designed for: Lowest Cost
                   </h3>
                 </div>
                 <div className="text-left md:text-right bg-green-50 px-3 py-2 rounded-lg border border-green-100">
@@ -296,19 +331,14 @@ const handleSearch = (e) => {
 
             {/* OPTION 3: HYBRID (Uber + Train + Bus) */}
             <div className="relative pt-6 pb-2 -mx-4 px-4 md:-mx-6 md:px-6 bg-[#0df259]/5 rounded-2xl border border-[#0df259]/20">
-              <div className="absolute top-0 left-6 transform -translate-y-1/2">
-                 <div className="bg-[#0d1c12] text-[#0df259] text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
-                   <Zap size={12} fill="currentColor"/> Architect's Pick: "The Smart Train"
-                 </div>
-              </div>
 
               <div className="space-y-4">
                 <div className="flex flex-col md:flex-row justify-between md:items-end gap-2">
                   <div>
-                    <div className="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">Option 3: Hybrid Route</div>
+                    <div className="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">Option 3: Hybrid</div>
                     <h3 className="text-lg font-bold flex items-center gap-2 text-indigo-900">
                       <Train size={20} className="text-indigo-600"/> 
-                      Uber Start / Bus End
+                      Designed for: Balance of Comfort & Cost
                     </h3>
                   </div>
                   <div className="text-left md:text-right bg-white px-3 py-2 rounded-lg border border-[#0df259]/30 shadow-sm">
@@ -417,47 +447,6 @@ const handleSearch = (e) => {
         </div>
       </section>
 
-      {/* Logic Features Section */}
-      <section className="py-20 bg-white font-display">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-[#0d1c12]">How we find the routes Google misses.</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10">
-            <div className="p-6 rounded-2xl bg-[#f5f8f6] border border-[#cee8d7] hover:shadow-lg transition-shadow group">
-              <div className="w-12 h-12 bg-[#cee8d7] rounded-xl flex items-center justify-center text-[#0d1c12] mb-6 group-hover:bg-[#0df259] transition-colors">
-                <TrendingUp size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-[#0d1c12] mb-3">The "Hub" Stitching</h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
-                We don't just say 'Drive' or 'Train.' We find the sweet spot: Drive to the Hub, then take the train. Avoid city centre parking fees and motorway traffic.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-[#f5f8f6] border border-[#cee8d7] hover:shadow-lg transition-shadow group">
-              <div className="w-12 h-12 bg-[#cee8d7] rounded-xl flex items-center justify-center text-[#0d1c12] mb-6 group-hover:bg-[#0df259] transition-colors">
-                <Car size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-[#0d1c12] mb-3">Parking vs. Uber Maths</h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
-                Is parking at the station £23? An Uber might be £8.97. We check the live prices so you don't have to guess.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-[#f5f8f6] border border-[#cee8d7] hover:shadow-lg transition-shadow group">
-              <div className="w-12 h-12 bg-[#cee8d7] rounded-xl flex items-center justify-center text-[#0d1c12] mb-6 group-hover:bg-[#0df259] transition-colors">
-                <Briefcase size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-[#0d1c12] mb-3">The Productivity Engine</h3>
-              <p className="text-gray-600 leading-relaxed text-sm">
-                Turn travel time into desk time. We highlight routes with Wi-Fi and tables so you arrive with your work already done.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Process Speeder Section */}
       <section className="py-20 bg-[#0d1c12] text-white font-display">
         <div className="max-w-5xl mx-auto px-4">
@@ -529,7 +518,7 @@ const handleSearch = (e) => {
             </button>
           </form>
           <div className="mt-12 text-sm text-gray-400">
-            © 2024 Commute Architect. All rights reserved.
+            © 2026 Commute Architect. All rights reserved.
           </div>
         </div>
       </footer>

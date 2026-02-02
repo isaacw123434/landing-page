@@ -700,6 +700,168 @@ const App = () => {
                           <li className="flex justify-between"><span>• Cycle (3.2 mi)</span> <span>17 min | £0.00</span></li>
                           <li className="flex justify-between text-red-500"><span>• Drive to Station (4.2 mi)</span> <span>15 min | 45p/mi</span></li>
                           <li className="flex justify-between text-red-500 pl-4"><span>+ Parking (24h)</span> <span>£23.00</span></li>
+                         className="flex justify-between"><span>• Bus (Line 24)</span> <span>23 min | £2.00</span></li>
+                          <li className="flex justify-between font-bold bg-indigo-50 px-1"><span>• Uber Direct</span> <span>14 min | £8.97</span></li>
+                          <li className="flex justify-between"><span>• Uber (5m) + Train (10m)</span> <span>15 min | £9.32</span></li>
+                       </ul>
+                    </div>
+                    <div>
+                       <h4 className="font-bold text-gray-800 mb-2 border-b border-gray-200 pb-1">Segment 3: Loughborough → East Leake</h4>
+                       <ul className="space-y-2 font-mono text-xs">
+                          <li className="flex justify-between font-bold bg-emerald-50 px-1"><span>• Walk + Bus (Line 1)</span> <span>14 min | £3.00</span></li>
+                          <li className="flex justify-between"><span>• Uber (4.5 mi)</span> <span>10 min | £14.89</span></li>
+                          <li className="flex justify-between"><span>• Cycle (4.5 mi)</span> <span>24 min | £0.00</span></li>
+                       </ul>
+                    </div>
+                 </div>
+                 <div className="mt-4 pt-4 border-t border-gray-200">
+                    <h4 className="font-bold text-gray-800 mb-2">Long Haul: Leeds → Loughborough</h4>
+                    <ul className="space-y-1 font-mono text-xs">
+                        <li className="flex justify-between"><span>• Train (CrossCountry / EMR)</span> <span>1h 42m | £25.70</span></li>
+                        <li className="flex justify-between text-red-500"><span>• Direct Drive (87 mi)</span> <span>1h 50m | £39.15</span></li>
+                    </ul>
+                 </div>
+               </div>
+            )}
+          </div>
+          
+          <div className="bg-[#f5f8f6] p-6 border-t border-[#e7f4eb] text-center">
+            <p className="text-gray-600 mb-4 text-sm font-medium">
+              Want this report for your specific commute?
+            </p>
+            <div className="flex max-w-md mx-auto gap-2">
+              <input 
+                type="email" 
+                placeholder="you@company.com" 
+                className="flex-1 bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0df259]"
+              />
+              <button className="bg-[#0d1c12] text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-gray-800 transition-colors">
+                Get My Analysis
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Logic Features Section */}
+      <section className="py-20 bg-white font-display">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0d1c12]">How we find the routes Google misses.</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            <div className="p-6 rounded-2xl bg-[#f5f8f6] border border-[#cee8d7] hover:shadow-lg transition-shadow group">
+              <div className="w-12 h-12 bg-[#cee8d7] rounded-xl flex items-center justify-center text-[#0d1c12] mb-6 group-hover:bg-[#0df259] transition-colors">
+                <TrendingUp size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-[#0d1c12] mb-3">The "Hub" Stitching</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                We don't just say 'Drive' or 'Train.' We find the sweet spot: Drive to the Hub, then take the train. Avoid city centre parking fees and motorway traffic.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#f5f8f6] border border-[#cee8d7] hover:shadow-lg transition-shadow group">
+              <div className="w-12 h-12 bg-[#cee8d7] rounded-xl flex items-center justify-center text-[#0d1c12] mb-6 group-hover:bg-[#0df259] transition-colors">
+                <Car size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-[#0d1c12] mb-3">Parking vs. Uber Maths</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                Is parking at the station £23? An Uber might be £8.97. We check the live prices so you don't have to guess.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#f5f8f6] border border-[#cee8d7] hover:shadow-lg transition-shadow group">
+              <div className="w-12 h-12 bg-[#cee8d7] rounded-xl flex items-center justify-center text-[#0d1c12] mb-6 group-hover:bg-[#0df259] transition-colors">
+                <Briefcase size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-[#0d1c12] mb-3">The Productivity Engine</h3>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                Turn travel time into desk time. We highlight routes with Wi-Fi and tables so you arrive with your work already done.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Speeder Section */}
+      <section className="py-20 bg-[#0d1c12] text-white font-display">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Stop Tab-Switching.</h2>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4 opacity-50">
+                  <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center shrink-0">
+                    <XCircle size={16} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg">The Old Way</h4>
+                    <p className="text-slate-400 text-sm">Check Google Maps → Check Trainline → Check Parking prices → Guess traffic.</p>
+                  </div>
+                </div>
+                
+                <div className="w-px h-8 bg-slate-700 ml-4"></div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-[#0df259] flex items-center justify-center shrink-0 text-[#0d1c12]">
+                    <CheckCircle size={16} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg text-[#0df259]">The Architect Way</h4>
+                    <p className="text-gray-300 mb-3 text-sm">One Search. Three Perfect Options.</p>
+                    <ul className="space-y-2 text-sm text-gray-400">
+                      <li className="flex items-center gap-2"><Zap size={14} className="text-[#0df259]"/> The Fastest Route</li>
+                      <li className="flex items-center gap-2"><TrendingUp size={14} className="text-[#0df259]"/> The Cheapest Route</li>
+                      <li className="flex items-center gap-2"><Briefcase size={14} className="text-[#0df259]"/> The Hybrid Productivity Route</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-[#1a2e22] p-8 rounded-2xl border border-gray-800 relative overflow-hidden">
+               <div className="absolute top-0 right-0 p-4 opacity-10">
+                 <MousePointer size={100} />
+               </div>
+               <h3 className="text-xl font-bold mb-4">Deep-link to book</h3>
+               <p className="text-gray-400 mb-6 text-sm">
+                 Found the perfect route? We deep-link you directly to Trainline or Uber with the destination pre-filled.
+               </p>
+               <div className="flex gap-4">
+                 <button className="flex-1 bg-gray-700 hover:bg-gray-600 py-3 rounded-lg text-sm font-medium transition-colors">Book Train</button>
+                 <button className="flex-1 bg-gray-700 hover:bg-gray-600 py-3 rounded-lg text-sm font-medium transition-colors">Order Uber</button>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-16 bg-[#f5f8f6] border-t border-[#e7f4eb] font-display">
+        <div className="max-w-2xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-[#0d1c12] mb-4">Plan a smarter workday.</h2>
+          <p className="text-gray-600 mb-8">
+            Join the Beta to start saving hours and money on your business commutes.
+          </p>
+          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input 
+              type="email" 
+              placeholder="Enter your work email" 
+              className="flex-1 bg-white border border-[#cee8d7] rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0df259] text-[#0d1c12]"
+            />
+            <button className="bg-[#0df259] text-[#0d1c12] font-bold py-3 px-6 rounded-xl hover:bg-[#0be050] transition-colors shadow-lg shadow-[#0df259]/20">
+              Get Early Access
+            </button>
+          </form>
+          <div className="mt-12 text-sm text-gray-400">
+            © 2024 Commute Architect. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
                        </ul>
                     </div>
                  </div>

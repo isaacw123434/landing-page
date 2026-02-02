@@ -23,6 +23,7 @@ import {
   ChevronUp,
   Bike
 } from 'lucide-react';
+import { saveEmail } from './firebase';
 
 const App = () => {
   const [startLocation, setStartLocation] = useState('');
@@ -41,28 +42,13 @@ const App = () => {
   const handleModalSubmit = async (e) => {
     e.preventDefault();
 
-    // Secure email submission logic
-    // We use an environment variable for the endpoint to keep it out of the repo.
-    // Ensure the endpoint uses HTTPS.
-    const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
-
-    if (apiEndpoint) {
-      try {
-        await fetch(apiEndpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email }),
-        });
-        alert('Thank you for subscribing!');
-      } catch (error) {
-        console.error('Error submitting email:', error);
-        alert('There was an error subscribing. Please try again.');
-        return;
-      }
-    } else {
-      // Demo mode / Fallback
-      console.log('Email captured (simulated):', email);
-      alert('Thank you for subscribing! (Demo mode)');
+    try {
+      await saveEmail(email);
+      alert('Thank you for subscribing!');
+    } catch (error) {
+      console.error('Error submitting email:', error);
+      alert('There was an error subscribing. Please try again.');
+      return;
     }
 
     setShowModal(false);

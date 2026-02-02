@@ -175,7 +175,7 @@ const handleSearch = (e) => {
                   className="w-full md:w-auto flex items-center justify-center gap-2 bg-[#0df259] hover:bg-[#0be050] text-[#0d1c12] px-6 py-3 rounded-lg font-bold text-sm transition-all shadow-lg shadow-[#0df259]/20"
                 >
                   <Navigation size={18} fill="currentColor" className="opacity-80"/>
-                  Calculate Route
+                  Email Me My Analysis
                 </button>
               </div>
             </form>
@@ -241,10 +241,10 @@ const handleSearch = (e) => {
             Demo Report
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#0d1c12] mb-4">
-            Three ways to beat the traffic.
+            Three ways to travel
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-             Here is the breakdown for <span className="font-semibold text-indigo-600">Leeds to Loughborough</span> based on your constraints (No Cycling).
+             Here is the breakdown for <span className="font-semibold text-indigo-600">Headingley, Leeds to East Leake, Loughborough</span> based on our routing engine.
           </p>
         </div>
 
@@ -297,7 +297,7 @@ const handleSearch = (e) => {
                   <div className="text-xs font-bold text-green-600 uppercase tracking-wider mb-1">Option 2: Cheapest</div>
                   <h3 className="text-lg font-bold flex items-center gap-2 text-slate-700">
                     <Bus size={20} className="text-emerald-500"/> 
-                    Designed for: Lowest Cost
+                    Designed for: Lowest Cost, Public Transport
                   </h3>
                 </div>
                 <div className="text-left md:text-right bg-green-50 px-3 py-2 rounded-lg border border-green-100">
@@ -343,9 +343,6 @@ const handleSearch = (e) => {
                   </div>
                   <div className="text-left md:text-right bg-white px-3 py-2 rounded-lg border border-[#0df259]/30 shadow-sm">
                     <div className="text-xl font-bold text-indigo-700">£37.67</div>
-                    <div className="text-xs text-green-600 font-bold flex items-center md:justify-end gap-1">
-                      <CheckCircle size={12} /> Balance of Speed & Cost
-                    </div>
                   </div>
                 </div>
 
@@ -399,30 +396,63 @@ const handleSearch = (e) => {
                <div className="bg-gray-50 px-6 pb-6 text-sm text-gray-600 animate-in slide-in-from-top-2">
                  <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                       <h4 className="font-bold text-gray-800 mb-2 border-b border-gray-200 pb-1">Segment 1: St Chads View → Leeds Stn</h4>
-                       <ul className="space-y-2 font-mono text-xs">
-                          <li className="flex justify-between"><span>• Cycle (3.2 mi)</span> <span>17 min | £0.00</span></li>
-                          <li className="flex justify-between text-red-500"><span>• Drive to Station (4.2 mi)</span> <span>15 min | 45p/mi</span></li>
-                          <li className="flex justify-between text-red-500 pl-4"><span>+ Parking (24h)</span> <span>£23.00</span></li>
-                         <li className="flex justify-between"><span>• Bus (Line 24)</span> <span>23 min | £2.00</span></li>
-                          <li className="flex justify-between font-bold bg-indigo-50 px-1"><span>• Uber Direct</span> <span>14 min | £8.97</span></li>
-                          <li className="flex justify-between"><span>• Uber (5m) + Train (10m)</span> <span>15 min | £9.32</span></li>
+                       <h4 className="font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">Segment 1: St Chads View → Leeds Stn</h4>
+                       <ul className="space-y-3">
+                          <li className="flex flex-col">
+                              <span className="font-medium text-gray-900">• Cycle (3.2 mi)</span>
+                              <span className="text-gray-500 text-xs">17 min | £0.00</span>
+                          </li>
+                          <li className="flex flex-col">
+                              <span className="font-medium text-gray-900">• Drive to Station (4.2 mi)</span>
+                              <span className="text-gray-500 text-xs">15 min | 45p/mi</span>
+                          </li>
+                          <li className="flex flex-col pl-4 border-l-2 border-gray-200 ml-1">
+                              <span className="font-medium text-gray-900">+ Parking (24h)</span>
+                              <span className="text-gray-500 text-xs">£23.00</span>
+                          </li>
+                         <li className="flex flex-col">
+                              <span className="font-medium text-gray-900">• Bus (Line 24)</span>
+                              <span className="text-gray-500 text-xs">23 min | £2.00</span>
+                          </li>
+                          <li className="flex flex-col bg-indigo-50 p-2 rounded-md -mx-2">
+                              <span className="font-medium text-indigo-900">• Uber Direct</span>
+                              <span className="text-indigo-600 text-xs">14 min | £8.97</span>
+                          </li>
+                          <li className="flex flex-col">
+                              <span className="font-medium text-gray-900">• Uber (5m) + Train (10m)</span>
+                              <span className="text-gray-500 text-xs">15 min | £9.32</span>
+                          </li>
                        </ul>
                     </div>
                     <div>
-                       <h4 className="font-bold text-gray-800 mb-2 border-b border-gray-200 pb-1">Segment 3: Loughborough → East Leake</h4>
-                       <ul className="space-y-2 font-mono text-xs">
-                          <li className="flex justify-between font-bold bg-emerald-50 px-1"><span>• Walk + Bus (Line 1)</span> <span>14 min | £3.00</span></li>
-                          <li className="flex justify-between"><span>• Uber (4.5 mi)</span> <span>10 min | £14.89</span></li>
-                          <li className="flex justify-between"><span>• Cycle (4.5 mi)</span> <span>24 min | £0.00</span></li>
+                       <h4 className="font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">Segment 3: Loughborough → East Leake</h4>
+                       <ul className="space-y-3">
+                          <li className="flex flex-col bg-emerald-50 p-2 rounded-md -mx-2">
+                              <span className="font-medium text-emerald-900">• Walk + Bus (Line 1)</span>
+                              <span className="text-emerald-600 text-xs">14 min | £3.00</span>
+                          </li>
+                          <li className="flex flex-col">
+                              <span className="font-medium text-gray-900">• Uber (4.5 mi)</span>
+                              <span className="text-gray-500 text-xs">10 min | £14.89</span>
+                          </li>
+                          <li className="flex flex-col">
+                              <span className="font-medium text-gray-900">• Cycle (4.5 mi)</span>
+                              <span className="text-gray-500 text-xs">24 min | £0.00</span>
+                          </li>
                        </ul>
                     </div>
                  </div>
-                 <div className="mt-4 pt-4 border-t border-gray-200">
-                    <h4 className="font-bold text-gray-800 mb-2">Long Haul: Leeds → Loughborough</h4>
-                    <ul className="space-y-1 font-mono text-xs">
-                        <li className="flex justify-between"><span>• Train (CrossCountry / EMR)</span> <span>1h 42m | £25.70</span></li>
-                        <li className="flex justify-between text-red-500"><span>• Direct Drive (87 mi)</span> <span>1h 50m | £39.15</span></li>
+                 <div className="mt-6 pt-6 border-t border-gray-200">
+                    <h4 className="font-bold text-gray-800 mb-3">Long Haul: Leeds → Loughborough</h4>
+                    <ul className="space-y-3">
+                        <li className="flex flex-col">
+                            <span className="font-medium text-gray-900">• Train (CrossCountry / EMR)</span>
+                            <span className="text-gray-500 text-xs">1h 42m | £25.70</span>
+                        </li>
+                        <li className="flex flex-col">
+                            <span className="font-medium text-gray-900">• Direct Drive (87 mi)</span>
+                            <span className="text-gray-500 text-xs">1h 50m | £39.15</span>
+                        </li>
                     </ul>
                  </div>
                </div>
@@ -483,19 +513,6 @@ const handleSearch = (e) => {
               </div>
             </div>
             
-            <div className="bg-[#1a2e22] p-8 rounded-2xl border border-gray-800 relative overflow-hidden">
-               <div className="absolute top-0 right-0 p-4 opacity-10">
-                 <MousePointer size={100} />
-               </div>
-               <h3 className="text-xl font-bold mb-4">Deep-link to book</h3>
-               <p className="text-gray-400 mb-6 text-sm">
-                 Found the perfect route? We deep-link you directly to Trainline or Uber with the destination pre-filled.
-               </p>
-               <div className="flex gap-4">
-                 <button className="flex-1 bg-gray-700 hover:bg-gray-600 py-3 rounded-lg text-sm font-medium transition-colors">Book Train</button>
-                 <button className="flex-1 bg-gray-700 hover:bg-gray-600 py-3 rounded-lg text-sm font-medium transition-colors">Order Uber</button>
-               </div>
-            </div>
           </div>
         </div>
       </section>

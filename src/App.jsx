@@ -27,6 +27,7 @@ import {
 const App = () => {
   const [startLocation, setStartLocation] = useState('');
   const [endLocation, setEndLocation] = useState('');
+  const [email, setEmail] = useState('');
   const [isWorkMode, setIsWorkMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showAllRoutes, setShowAllRoutes] = useState(false);
@@ -37,8 +38,33 @@ const App = () => {
     setShowModal(true);
   };
 
-  const handleModalSubmit = (e) => {
+  const handleModalSubmit = async (e) => {
     e.preventDefault();
+
+    // Secure email submission logic
+    // We use an environment variable for the endpoint to keep it out of the repo.
+    // Ensure the endpoint uses HTTPS.
+    const apiEndpoint = import.meta.env.VITE_API_ENDPOINT;
+
+    if (apiEndpoint) {
+      try {
+        await fetch(apiEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        alert('Thank you for subscribing!');
+      } catch (error) {
+        console.error('Error submitting email:', error);
+        alert('There was an error subscribing. Please try again.');
+        return;
+      }
+    } else {
+      // Demo mode / Fallback
+      console.log('Email captured (simulated):', email);
+      alert('Thank you for subscribing! (Demo mode)');
+    }
+
     setShowModal(false);
     if (resultsRef.current) {
       setTimeout(() => {
@@ -84,6 +110,8 @@ const App = () => {
                   type="email" 
                   required
                   placeholder="name@company.com" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-[#f5f8f6] border border-gray-200 rounded-lg px-4 py-3 text-[#0d1c12] focus:outline-none focus:ring-2 focus:ring-[#0df259] font-medium placeholder:text-gray-400"
                 />
                 <button type="submit" className="w-full bg-[#0d1c12] text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
@@ -360,4 +388,16 @@ const App = () => {
                           <li className="flex justify-between"><span>• Cycle (3.2 mi)</span> <span>17 min | £0.00</span></li>
                           <li className="flex justify-between text-red-500"><span>• Drive to Station (4.2 mi)</span> <span>15 min | 45p/mi</span></li>
                           <li className="flex justify-between text-red-500 pl-4"><span>+ Parking (24h)</span> <span>£23.00</span></li>
-          
+                       </ul>
+                    </div>
+                 </div>
+               </div>
+            )}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default App;

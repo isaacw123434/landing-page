@@ -265,7 +265,7 @@ const NeuralRoutingSection = () => {
     }, [activeSection]);
 
     return (
-        <div className="relative bg-slate-950 font-sans text-slate-200">
+        <div className="relative bg-[#050f08] font-sans text-slate-200">
             {/* Sticky Diagram Container */}
             <div className="sticky top-0 h-screen w-full overflow-hidden">
                 {/*
@@ -283,14 +283,14 @@ const NeuralRoutingSection = () => {
                 {/* Section 0: First Mile (Mapped to Visual State 1) */}
                 <StorySection index={0} isActive={activeSection === 0} title="The First Mile" align="end">
                     <p>
-                        We assess all options for your initial leg. Driving, taxis, or local transit are optimized to connect you to the main network.
+                        We assess all options for your initial leg. Driving, taxis, or local transit are optimised to connect you to the main network.
                     </p>
                 </StorySection>
 
                 {/* Section 1: Core Journey (Mapped to Visual State 2) */}
                 <StorySection index={1} isActive={activeSection === 1} title="The Core Journey" align="start">
                     <p>
-                        We link you directly to major Coach and Train lines. Your transfer is synchronized for a perfect transition.
+                        We link you directly to major Coach and Train lines. Your transfer is synchronised for a perfect transition.
                     </p>
                 </StorySection>
 

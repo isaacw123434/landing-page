@@ -91,9 +91,6 @@ const handleSearch = (e) => {
               </p>
             </div>
             <div className="p-6">
-              <p className="text-gray-600 mb-4 text-sm">
-                Enter your email to unlock the <strong>Leeds to Loughborough</strong> demo report and join the waitlist for your custom route.
-              </p>
               <form onSubmit={handleModalSubmit} className="space-y-3">
                 <input 
                   type="email" 
@@ -130,6 +127,7 @@ const handleSearch = (e) => {
 
       {/* HERO SECTION */}
       <section 
+        id="top"
         className="relative flex flex-col items-center justify-center min-h-[85vh] px-4 py-12 lg:px-40 bg-cover bg-center bg-no-repeat font-display" 
         style={{
           backgroundImage: 'linear-gradient(to bottom, rgba(245, 248, 246, 0.85) 0%, rgba(245, 248, 246, 0.4) 50%, rgba(245, 248, 246, 1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhOvrZQfwunAKURYxaZaqFXy20_kJyYoD_2dy535SBXelWTKkfeY_UisG63mVBhc3MnTHS2u4gXLjSLP5JSlm2vPOHF_wi7vWmb-9Tya3m3HxyggoyVg0XtKdEJsdnV9JS-3WmJtp4rjz3KpFxdnlW7LgvgHe0rXcvmmS7Q_toKQt9N2iWeDxbqSobpolTROvK7DSH0_hisJmikoKPlukSGRacDIArIOw8MZHhsWxYlqkHoFM6fzA9-o3BxA7FU5k4YeCth2a2nVw")'
@@ -261,7 +259,7 @@ const handleSearch = (e) => {
             <div className="text-xs font-mono text-gray-400">ANALYSIS_ID: #8821X</div>
           </div>
 
-          <div className="p-6 md:p-10 space-y-16">
+          <div className="p-6 md:p-10 space-y-6">
             
             {/* OPTION 1: THE FASTEST (Direct Drive) */}
             <div className="space-y-4">
@@ -463,16 +461,14 @@ const handleSearch = (e) => {
           
           <div className="bg-[#f5f8f6] p-6 border-t border-[#e7f4eb] text-center">
             <p className="text-gray-600 mb-4 text-sm font-medium">
-              Want this report for your specific commute?
+              Want this report for your analysis?
             </p>
-            <div className="flex max-w-md mx-auto gap-2">
-              <input 
-                type="email" 
-                placeholder="you@company.com" 
-                className="flex-1 bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0df259]"
-              />
-              <button className="bg-[#0d1c12] text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-gray-800 transition-colors">
-                Get My Analysis
+            <div className="flex justify-center">
+              <button
+                onClick={() => document.getElementById('top').scrollIntoView({ behavior: 'smooth' })}
+                className="bg-[#0d1c12] text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-gray-800 transition-colors"
+              >
+                Start Your Analysis
               </button>
             </div>
           </div>
